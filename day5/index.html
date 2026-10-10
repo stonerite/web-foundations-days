@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users Directory</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      max-width: 42rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.5;
+      color: #1f2933;
+    }
+    h1 { margin-bottom: 1rem; }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      align-items: flex-end;
+      margin-bottom: 1rem;
+    }
+    .field { display: flex; flex-direction: column; gap: 0.25rem; }
+    button, input {
+      font: inherit;
+      padding: 0.45rem 0.75rem;
+      border: 1px solid #9aa5b1;
+      border-radius: 6px;
+    }
+    button { background: #1d4ed8; color: #fff; border-color: #1d4ed8; cursor: pointer; }
+    button:disabled { background: #9aa5b1; border-color: #9aa5b1; cursor: not-allowed; }
+    #status { min-height: 1.5rem; margin: 0.5rem 0 1rem; font-weight: 600; }
+    #status.loading { color: #92400e; }
+    #status.success { color: #166534; }
+    #status.error   { color: #b91c1c; }
+    #users-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+    #users-list li {
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+    }
+    #users-list .user-name { font-size: 1.05rem; }
+    #users-list .user-detail { margin: 0.15rem 0 0; color: #52606d; }
+  </style>
+</head>
+<body>
+  <h1>Users Directory</h1>
+
+  <div class="controls">
+    <button id="load-users" type="button">Load users</button>
+    <div class="field">
+      <label for="filter-input">Filter by name</label>
+      <input id="filter-input" type="text" placeholder="Type a name…" autocomplete="off">
+    </div>
+  </div>
+
+  <p id="status" role="status" aria-live="polite"></p>
+  <ul id="users-list"></ul>
+
+  <script src="users.js" defer></script>
+</body>
+</html>
