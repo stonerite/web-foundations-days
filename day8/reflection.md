@@ -1,0 +1,7 @@
+# Reflection
+
+**The most difficult concept.** The hardest idea for me was concurrency: what happens when many users act on the same data at the same moment. In everyday code I imagine one user at a time, so "two people buying the same seat" did not feel like a real problem. What helped me was working through concrete examples. I wrote out what two overlapping requests do step by step, and saw that "read the seat, then write it" lets both succeed. Once I saw that a single conditional UPDATE and a UNIQUE constraint turn the database into the referee, transactions and constraints finally made sense, and I could check my own designs against that picture.
+
+**What I would improve.** The feedback on my Day 7 scaling plan said it appeared to cut off in the middle of the architecture diagram, so the upload flow and trade-offs were missing. I checked the file, found it was complete but long, and shortened it, with a smaller diagram and the key sections earlier. I would improve the capstone by re-reading what I actually push, keeping documents tighter, and adding failure cases, such as a worker crashing or a user never finishing an upload.
+
+**What I will learn next.** I want to build and run a small system myself, not only design it: a real database with transactions, a queue with background workers, and caching. I also want to learn load testing, so I can check estimates like "333 users per second" against measurements, and monitoring, so I can see problems before users do.
